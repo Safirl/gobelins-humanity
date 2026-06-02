@@ -1,9 +1,13 @@
 import "./assets/reset.css";
 // import "./style.css";
-import { Experience } from "@plugins/base-experience";
+import {
+  Experience,
+  OrbitCamera,
+  TemplateWorld,
+} from "@plugins/base-experience";
 import { sources } from "./Experience/sources";
-import ExperienceWorld from "./Experience/ExpWorld";
-import OrthoCamera from "./Experience/OrthoCamera";
+import ExperienceWorld from "./Experience/ExpWorld2";
+import ExperienceCamera from "./Experience/OrthoCamera";
 
 const init = () => {
   const canvas: HTMLCanvasElement = document.getElementById(
@@ -17,7 +21,7 @@ const init = () => {
 
   canvas.style.width = "100%";
   canvas.style.height = "100%";
-  const camera = new OrthoCamera();
+  const camera = new ExperienceCamera();
   const world = new ExperienceWorld();
   new Experience(canvas, sources, camera, world);
 };
