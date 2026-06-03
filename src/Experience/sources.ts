@@ -55,49 +55,248 @@ export const sources: Source[] = [
     type: "texture",
     path: "textures/noiseTexture.png",
   },
+
+  //Figures
   {
-    name: "01figureTexture",
+    name: "1figureTexture",
     type: "texture",
-    path: "textures/figures/01.png",
+    path: "textures/figures/1.png",
   },
   {
-    name: "02figureTexture",
+    name: "2figureTexture",
     type: "texture",
-    path: "textures/figures/02.png",
+    path: "textures/figures/2.png",
   },
   {
-    name: "03figureTexture",
+    name: "3figureTexture",
     type: "texture",
-    path: "textures/figures/03.png",
+    path: "textures/figures/3.png",
   },
   {
-    name: "04figureTexture",
+    name: "4figureTexture",
     type: "texture",
-    path: "textures/figures/04.png",
+    path: "textures/figures/4.png",
   },
   {
-    name: "05figureTexture",
+    name: "5figureTexture",
     type: "texture",
-    path: "textures/figures/05.png",
+    path: "textures/figures/5.png",
   },
   {
-    name: "06figureTexture",
+    name: "6figureTexture",
     type: "texture",
-    path: "textures/figures/06.png",
+    path: "textures/figures/6.png",
   },
   {
-    name: "07figureTexture",
+    name: "7figureTexture",
     type: "texture",
-    path: "textures/figures/07.png",
+    path: "textures/figures/7.png",
   },
   {
-    name: "08figureTexture",
+    name: "8figureTexture",
     type: "texture",
-    path: "textures/figures/08.png",
+    path: "textures/figures/8.png",
   },
-  // {
-  //   name: "noiseTexture",
-  //   type: "texture",
-  //   path: "textures/noiseTexture.png",
-  // },
+  {
+    name: "9figureTexture",
+    type: "texture",
+    path: "textures/figures/9.png",
+  },
+  {
+    name: "10figureTexture",
+    type: "texture",
+    path: "textures/figures/10.png",
+  },
+  {
+    name: "11figureTexture",
+    type: "texture",
+    path: "textures/figures/11.png",
+  },
+  {
+    name: "12figureTexture",
+    type: "texture",
+    path: "textures/figures/12.png",
+  },
+  {
+    name: "13figureTexture",
+    type: "texture",
+    path: "textures/figures/13.png",
+  },
+  {
+    name: "14figureTexture",
+    type: "texture",
+    path: "textures/figures/14.png",
+  },
+  {
+    name: "15figureTexture",
+    type: "texture",
+    path: "textures/figures/15.png",
+  },
+  {
+    name: "16figureTexture",
+    type: "texture",
+    path: "textures/figures/16.png",
+  },
+  {
+    name: "17figureTexture",
+    type: "texture",
+    path: "textures/figures/17.png",
+  },
+  {
+    name: "18figureTexture",
+    type: "texture",
+    path: "textures/figures/18.png",
+  },
+  {
+    name: "19figureTexture",
+    type: "texture",
+    path: "textures/figures/19.png",
+  },
+  {
+    name: "20figureTexture",
+    type: "texture",
+    path: "textures/figures/20.png",
+  },
+  {
+    name: "21figureTexture",
+    type: "texture",
+    path: "textures/figures/21.png",
+  },
+  {
+    name: "22figureTexture",
+    type: "texture",
+    path: "textures/figures/22.png",
+  },
+  {
+    name: "23figureTexture",
+    type: "texture",
+    path: "textures/figures/23.png",
+  },
+  {
+    name: "24figureTexture",
+    type: "texture",
+    path: "textures/figures/24.png",
+  },
+
+  //Cells
+  {
+    name: "1cellTexture",
+    type: "texture",
+    path: "textures/cells/1.png",
+  },
+  {
+    name: "2cellTexture",
+    type: "texture",
+    path: "textures/cells/2.png",
+  },
+  {
+    name: "3cellTexture",
+    type: "texture",
+    path: "textures/cells/3.png",
+  },
+  {
+    name: "4cellTexture",
+    type: "texture",
+    path: "textures/cells/4.png",
+  },
+  {
+    name: "5cellTexture",
+    type: "texture",
+    path: "textures/cells/5.png",
+  },
+  {
+    name: "6cellTexture",
+    type: "texture",
+    path: "textures/cells/6.png",
+  },
+  {
+    name: "7cellTexture",
+    type: "texture",
+    path: "textures/cells/7.png",
+  },
+  {
+    name: "8cellTexture",
+    type: "texture",
+    path: "textures/cells/8.png",
+  },
+  {
+    name: "9cellTexture",
+    type: "texture",
+    path: "textures/cells/9.png",
+  },
+  {
+    name: "10cellTexture",
+    type: "texture",
+    path: "textures/cells/10.png",
+  },
+  {
+    name: "11cellTexture",
+    type: "texture",
+    path: "textures/cells/11.png",
+  },
+  {
+    name: "12cellTexture",
+    type: "texture",
+    path: "textures/cells/12.png",
+  },
+  {
+    name: "13cellTexture",
+    type: "texture",
+    path: "textures/cells/13.png",
+  },
+  {
+    name: "14cellTexture",
+    type: "texture",
+    path: "textures/cells/14.png",
+  },
+  {
+    name: "15cellTexture",
+    type: "texture",
+    path: "textures/cells/15.png",
+  },
+  {
+    name: "16cellTexture",
+    type: "texture",
+    path: "textures/cells/16.png",
+  },
+  {
+    name: "17cellTexture",
+    type: "texture",
+    path: "textures/cells/17.png",
+  },
+  {
+    name: "18cellTexture",
+    type: "texture",
+    path: "textures/cells/18.png",
+  },
+  {
+    name: "19cellTexture",
+    type: "texture",
+    path: "textures/cells/19.png",
+  },
+  {
+    name: "20cellTexture",
+    type: "texture",
+    path: "textures/cells/20.png",
+  },
+  {
+    name: "21cellTexture",
+    type: "texture",
+    path: "textures/cells/21.png",
+  },
+  {
+    name: "22cellTexture",
+    type: "texture",
+    path: "textures/cells/22.png",
+  },
+  {
+    name: "23cellTexture",
+    type: "texture",
+    path: "textures/cells/23.png",
+  },
+  {
+    name: "24cellTexture",
+    type: "texture",
+    path: "textures/cells/24.png",
+  },
 ];

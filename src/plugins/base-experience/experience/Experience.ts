@@ -38,6 +38,7 @@ export default class Experience implements LifeTimeObject {
     if (Experience.instance) {
       return;
     }
+
     Experience.instance = this;
 
     // Global access (replaced by the static instance property)

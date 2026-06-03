@@ -8,7 +8,7 @@ export default class ExperienceCamera extends Camera {
   //
   //
   declare animCtx: gsap.Context;
-  private initialDistance: number = 1;
+  private initialDistance: number = 1.9;
   init(): void {
     super.init();
     this.experience.canvas.addEventListener("click", this.bumpCamera);
@@ -20,11 +20,7 @@ export default class ExperienceCamera extends Camera {
       0.1,
       1000,
     );
-    this.instance.position.set(
-      0,
-      0,
-      (this.initialDistance * 1) / (this.sizes.width / this.sizes.height),
-    );
+    this.instance.position.set(0, 0, this.initialDistance * 1);
     super.setInstance();
   }
 
@@ -39,11 +35,7 @@ export default class ExperienceCamera extends Camera {
 
   resize(): void {
     super.resize();
-    this.instance.position.set(
-      0,
-      0,
-      (this.initialDistance * 1) / (this.sizes.width / this.sizes.height),
-    );
+    this.instance.position.set(0, 0, this.initialDistance * 1);
   }
 
   bumpCamera = () => {
@@ -54,7 +46,7 @@ export default class ExperienceCamera extends Camera {
     );
     this.animCtx = gsap.context((self) => {
       gsap.to(this.instance.position, {
-        z: currentPosition.z - 0.3,
+        z: currentPosition.z - 0.1,
         duration: 0.1,
         onComplete: () => {
           gsap.to(this.instance.position, {
