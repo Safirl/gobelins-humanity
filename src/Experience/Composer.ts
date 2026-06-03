@@ -2,7 +2,6 @@ import { Debug, Experience } from "@plugins/base-experience";
 import { RGBShiftShader } from "three/addons/shaders/RGBShiftShader.js";
 import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
-import { RenderPixelatedPass } from "three/addons/postprocessing/RenderPixelatedPass.js";
 import type GUI from "lil-gui";
 import * as THREE from "three";
 
@@ -13,9 +12,9 @@ export default class Composer {
 
   //bloom
   declare bloomPass: UnrealBloomPass;
-  private bloomThreshold: number = 0.85;
-  private bloomStrength: number = 0.4;
-  private bloomRadius: number = 0.4;
+  public bloomThreshold: number = 0.85;
+  public bloomStrength: number = 0.4;
+  public bloomRadius: number = 0.4;
 
   //shift
   declare rgbShift: ShaderPass;

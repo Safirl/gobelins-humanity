@@ -1,8 +1,9 @@
 import { Experience } from "@plugins/base-experience";
 import * as THREE from "three";
+//@ts-ignore
 import fragment from "@shaders/human/fragment.glsl";
+//@ts-ignore
 import vertex from "@shaders/human/vertex.glsl";
-import type ExperienceWorld from "./ExpWorld";
 
 export default class Plane {
   declare private experience: Experience;

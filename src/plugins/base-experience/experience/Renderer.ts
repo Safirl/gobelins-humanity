@@ -4,10 +4,8 @@ import {
   EffectComposer,
   OutputPass,
   RenderPass,
-  ShaderPass,
   type Pass,
 } from "three/examples/jsm/Addons.js";
-import { GammaCorrectionShader } from "three/examples/jsm/Addons.js";
 
 export default class Renderer {
   declare experience: Experience;

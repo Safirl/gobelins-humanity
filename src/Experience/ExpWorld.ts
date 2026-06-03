@@ -1,8 +1,5 @@
-import { EventEmitter, Experience } from "@plugins/base-experience";
+import { Experience } from "@plugins/base-experience";
 import { Environment } from "@plugins/base-experience";
-import { Floor } from "@plugins/base-experience";
-import type { GLTF } from "three/examples/jsm/Addons.js";
-import { Actor } from "@plugins/base-experience";
 import { World } from "@plugins/base-experience";
 import * as THREE from "three";
 
@@ -58,7 +55,7 @@ export default class ExperienceWorld extends World {
     this.experience.canvas.addEventListener("click", this.nextFigure);
   }
 
-  onAudio = (a) => {
+  onAudio = (a: any) => {
     if (a.kick > .9) {
       this.nextFigure();
     }

@@ -60,7 +60,7 @@ export default class ExperienceCamera extends Camera {
       step *= -1;
     }
 
-    this.animCtx = gsap.context((self) => {
+    this.animCtx = gsap.context(() => {
       gsap.to(this.instance.position, {
         z: targetPosition + step * 2,
         duration: this.world.beatDelay / 4,

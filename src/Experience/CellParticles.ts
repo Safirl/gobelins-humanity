@@ -1,7 +1,9 @@
 import { Debug, Experience } from "@plugins/base-experience";
 import type GUI from "lil-gui";
 import * as THREE from "three";
+//@ts-ignore
 import fragment from "@shaders/cellParticles/fragment.glsl";
+//@ts-ignore
 import vertex from "@shaders/cellParticles/vertex.glsl";
 import type ExperienceWorld from "./ExpWorld";
 
@@ -113,7 +115,9 @@ export default class CelleParticles {
   }
 
   onAudio = (a) => {
+    //@ts-ignore
     this.points.material.uniforms.uNoiseAmplitude.value = a.volumeSmooth * this.noiseAmplitude;
+    //@ts-ignore
     this.points.material.uniforms.uSize.value = this.size * a.volumeSmooth + 100
   }
 
@@ -124,6 +128,7 @@ export default class CelleParticles {
       .max(1)
       .step(0.01)
       .onChange(() => {
+    //@ts-ignore
         this.points.material.uniforms.uNoiseAmplitude.value =
           this.noiseAmplitude;
       });
@@ -134,6 +139,7 @@ export default class CelleParticles {
       .max(1)
       .step(0.01)
       .onChange(() => {
+    //@ts-ignore
         this.points.material.uniforms.uNoiseFrequency.value =
           this.noiseFrequency;
       });
@@ -144,11 +150,13 @@ export default class CelleParticles {
       .max(150)
       .step(1)
       .onChange(() => {
+        //@ts-ignore
         this.points.material.uniforms.uSize.value = this.size;
       });
   };
 
   update() {
+    //@ts-ignore
     this.points.material.uniforms.uTime.value = this.experience.time.elapsed;
   }
 

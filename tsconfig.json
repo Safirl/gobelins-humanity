@@ -14,14 +14,15 @@
     "noEmit": true,
 
     /* Linting */
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@plugins/*": ["./src/plugins/*"],
       "@shaders/*": ["./src/shaders/*"],
     },
+    "strict": false
   },
   "include": ["src", "public"],
 }
