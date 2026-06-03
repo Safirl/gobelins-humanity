@@ -38,7 +38,7 @@ export default class SoundPlayer {
 			const response = await fetch( '/tracks/tracks.json' )
 			this.tracks = await response.json()
 			this.trackNames = this.tracks.map( ( t ) => decodeURIComponent( t.split( '/' ).pop().replace( /\.mp3$/i, '' ) ) )
-			this.trackIndex = Math.max( 0, this.trackNames.findIndex( ( n ) => /digeridoo/i.test( n ) ) )   // Digeridoo plays first
+			this.trackIndex = Math.max( 0, this.trackNames.findIndex( ( n ) => /tame/i.test( n ) ) )   // Digeridoo plays first
 			if ( this.tracks.length ) this.useTrack( this.tracks[ this.trackIndex ] )
 			else await this.useMic()
 		} catch ( e ) {
