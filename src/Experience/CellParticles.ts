@@ -3,14 +3,15 @@ import type GUI from "lil-gui";
 import * as THREE from "three";
 import fragment from "@shaders/cellParticles/fragment.glsl";
 import vertex from "@shaders/cellParticles/vertex.glsl";
+import type ExperienceWorld from "./ExpWorld";
 
 export default class CelleParticles {
   declare private points: THREE.Points;
 
   //parameters
   private count = 300;
-  public noiseAmplitude: number = 0.03;
-  public noiseFrequency: number = 0.42;
+  public noiseAmplitude: number = 0.2;
+  public noiseFrequency: number = 0.1;
   public size = 150;
 
   declare private width: number;
@@ -20,8 +21,6 @@ export default class CelleParticles {
   declare private debug: Debug;
   declare private debugFolder: GUI;
   private textures: THREE.Texture[] = [];
-
-  private wtfCount;
 
   constructor(width: number, height: number, textureCount: number) {
     if (!Experience.instance) return;
@@ -107,6 +106,15 @@ export default class CelleParticles {
 
     this.points = new THREE.Points(geometry, material);
     this.experience.scene.add(this.points);
+
+    //Setup audio listener
+    const world = this.experience.world as ExperienceWorld
+    world.musicHandler.audio.onAudio(this.onAudio)
+  }
+
+  onAudio = (a) => {
+    this.points.material.uniforms.uNoiseAmplitude.value = a.volumeSmooth * this.noiseAmplitude;
+    this.points.material.uniforms.uSize.value = this.size * a.volumeSmooth + 100
   }
 
   setDebugObject = () => {
@@ -122,7 +130,7 @@ export default class CelleParticles {
 
     this.debugFolder
       .add(this, "noiseFrequency")
-      .min(0.01)
+      .min(0.)
       .max(1)
       .step(0.01)
       .onChange(() => {
@@ -165,8 +173,8 @@ export default class CelleParticles {
   };
 
   updateAmplitude = (index: number) => {
-    this.points.material.uniforms.uNoiseAmplitude.value =
-      index * 0.5 * this.noiseAmplitude;
+    // this.points.material.uniforms.uNoiseAmplitude.value =
+    //   index * 0.5 * this.noiseAmplitude;
   };
 
   getWhitePixels = (

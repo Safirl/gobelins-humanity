@@ -6,8 +6,9 @@ import {
   TemplateWorld,
 } from "@plugins/base-experience";
 import { sources } from "./Experience/sources";
-import ExperienceWorld from "./Experience/ExpWorld2";
+import ExperienceWorld from "./Experience/ExpWorld";
 import ExperienceCamera from "./Experience/OrthoCamera";
+import MusicHandler from "./Experience/MusicHandler";
 
 const init = () => {
   const canvas: HTMLCanvasElement = document.getElementById(

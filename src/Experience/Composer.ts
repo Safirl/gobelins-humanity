@@ -9,7 +9,7 @@ import * as THREE from "three";
 export default class Composer {
   declare private experience: Experience;
   //pixel
-  declare bloomPass: UnrealBloomPass;
+  // declare bloomPass: UnrealBloomPass;
 
   //bloom
   declare bloomPass: UnrealBloomPass;

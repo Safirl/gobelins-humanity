@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { Camera } from "@plugins/base-experience";
 import gsap from "gsap";
-import type ExperienceWorld from "./ExpWorld2";
+import type ExperienceWorld from "./ExpWorld";
 
 export default class ExperienceCamera extends Camera {
   //@ts-ignore
@@ -15,7 +15,7 @@ export default class ExperienceCamera extends Camera {
 
   init(): void {
     super.init();
-    this.experience.canvas.addEventListener("click", this.bumpCamera);
+    // this.experience.canvas.addEventListener("click", this.bumpCamera);
     this.world = this.experience.world as ExperienceWorld;
   }
   setInstance(): void {
