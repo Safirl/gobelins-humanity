@@ -1,4 +1,4 @@
-import { Experience } from "@plugins/base-experience";
+import { EventEmitter, Experience } from "@plugins/base-experience";
 import { Environment } from "@plugins/base-experience";
 import { Floor } from "@plugins/base-experience";
 import type { GLTF } from "three/examples/jsm/Addons.js";
@@ -9,6 +9,7 @@ import * as THREE from "three";
 import CelleParticles from "./CellParticles";
 import Plane from "./Plane";
 import Composer from "./Composer";
+import type ExperienceCamera from "./OrthoCamera";
 
 export default class ExperienceWorld extends World {
   declare experience: Experience;
@@ -23,7 +24,9 @@ export default class ExperienceWorld extends World {
   private flipFlop: boolean = true;
   declare private composer: Composer;
 
-  private textureCount = 24;
+  public textureCount = 41;
+
+  public beatDelay = 0.411 / 1;
 
   init() {
     super.init();
@@ -43,10 +46,18 @@ export default class ExperienceWorld extends World {
       1080 / 1080,
       this.textureCount,
     );
-    this.nextFigure();
-
+    // this.manualBeatTrigger();
     this.experience.canvas.addEventListener("click", this.nextFigure);
   }
+
+  manualBeatTrigger = () => {
+    this.nextFigure();
+    const camera = this.experience.camera as ExperienceCamera;
+    camera.bumpCamera();
+    setTimeout(() => {
+      this.manualBeatTrigger();
+    }, this.beatDelay * 1000);
+  };
 
   nextFigure = () => {
     //if we did two passes, switch to new textures

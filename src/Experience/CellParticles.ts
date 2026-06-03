@@ -160,6 +160,13 @@ export default class CelleParticles {
       new THREE.BufferAttribute(targetPos, 3),
     );
     this.points.geometry.attributes.position.needsUpdate = true;
+
+    this.updateAmplitude(index);
+  };
+
+  updateAmplitude = (index: number) => {
+    this.points.material.uniforms.uNoiseAmplitude.value =
+      index * 0.5 * this.noiseAmplitude;
   };
 
   getWhitePixels = (

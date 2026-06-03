@@ -177,6 +177,96 @@ export const sources: Source[] = [
     type: "texture",
     path: "textures/figures/24.png",
   },
+  {
+    name: "25figureTexture",
+    type: "texture",
+    path: "textures/figures/25.png",
+  },
+  {
+    name: "26figureTexture",
+    type: "texture",
+    path: "textures/figures/26.png",
+  },
+  {
+    name: "27figureTexture",
+    type: "texture",
+    path: "textures/figures/27.png",
+  },
+  {
+    name: "28figureTexture",
+    type: "texture",
+    path: "textures/figures/28.png",
+  },
+  {
+    name: "29figureTexture",
+    type: "texture",
+    path: "textures/figures/29.png",
+  },
+  {
+    name: "30figureTexture",
+    type: "texture",
+    path: "textures/figures/30.png",
+  },
+  {
+    name: "31figureTexture",
+    type: "texture",
+    path: "textures/figures/31.png",
+  },
+  {
+    name: "32figureTexture",
+    type: "texture",
+    path: "textures/figures/32.png",
+  },
+  {
+    name: "33figureTexture",
+    type: "texture",
+    path: "textures/figures/33.png",
+  },
+  {
+    name: "34figureTexture",
+    type: "texture",
+    path: "textures/figures/34.png",
+  },
+  {
+    name: "35figureTexture",
+    type: "texture",
+    path: "textures/figures/35.png",
+  },
+  {
+    name: "36figureTexture",
+    type: "texture",
+    path: "textures/figures/36.png",
+  },
+  {
+    name: "37figureTexture",
+    type: "texture",
+    path: "textures/figures/37.png",
+  },
+  {
+    name: "38figureTexture",
+    type: "texture",
+    path: "textures/figures/38.png",
+  },
+  {
+    name: "39figureTexture",
+    type: "texture",
+    path: "textures/figures/39.png",
+  },
+  {
+    name: "40figureTexture",
+    type: "texture",
+    path: "textures/figures/40.png",
+  },
+  {
+    name: "41figureTexture",
+    type: "texture",
+    path: "textures/figures/41.png",
+  },
+  // {
+  //   name: "42figureTexture",
+  //   type: "texture",
+  //   path: "textures/figures/42.png",
+  // },
 
   //Cells
   {
@@ -298,5 +388,90 @@ export const sources: Source[] = [
     name: "24cellTexture",
     type: "texture",
     path: "textures/cells/24.png",
+  },
+  {
+    name: "25cellTexture",
+    type: "texture",
+    path: "textures/cells/25.png",
+  },
+  {
+    name: "26cellTexture",
+    type: "texture",
+    path: "textures/cells/26.png",
+  },
+  {
+    name: "27cellTexture",
+    type: "texture",
+    path: "textures/cells/27.png",
+  },
+  {
+    name: "28cellTexture",
+    type: "texture",
+    path: "textures/cells/28.png",
+  },
+  {
+    name: "29cellTexture",
+    type: "texture",
+    path: "textures/cells/29.png",
+  },
+  {
+    name: "30cellTexture",
+    type: "texture",
+    path: "textures/cells/30.png",
+  },
+  {
+    name: "31cellTexture",
+    type: "texture",
+    path: "textures/cells/31.png",
+  },
+  {
+    name: "32cellTexture",
+    type: "texture",
+    path: "textures/cells/32.png",
+  },
+  {
+    name: "33cellTexture",
+    type: "texture",
+    path: "textures/cells/33.png",
+  },
+  {
+    name: "34cellTexture",
+    type: "texture",
+    path: "textures/cells/34.png",
+  },
+  {
+    name: "35cellTexture",
+    type: "texture",
+    path: "textures/cells/35.png",
+  },
+  {
+    name: "36cellTexture",
+    type: "texture",
+    path: "textures/cells/36.png",
+  },
+  {
+    name: "37cellTexture",
+    type: "texture",
+    path: "textures/cells/37.png",
+  },
+  {
+    name: "38cellTexture",
+    type: "texture",
+    path: "textures/cells/38.png",
+  },
+  {
+    name: "39cellTexture",
+    type: "texture",
+    path: "textures/cells/39.png",
+  },
+  {
+    name: "40cellTexture",
+    type: "texture",
+    path: "textures/cells/40.png",
+  },
+  {
+    name: "41cellTexture",
+    type: "texture",
+    path: "textures/cells/41.png",
   },
 ];

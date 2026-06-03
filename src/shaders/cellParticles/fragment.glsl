@@ -19,9 +19,11 @@ void main() {
 
     float strength = 0.1 / abs(distance(noiseUv, vec2(0.5)) - .25);
     //Replace the center by a random noise to make the center cell move
-    // float strength = 0.15 / (distance(vec2(gl_PointCoord.x, (gl_PointCoord.y - 0.5) * 5.0 + 0.5), vec2(0.5)));
-    // strength *= 0.15 / (distance(vec2(gl_PointCoord.y, (gl_PointCoord.x - 0.5) * 5.0 + 0.5), vec2(0.5)));
-    strength *= 0.015 / abs(distance(gl_PointCoord, vec2(.5 + vRandCorePosition.x, .5 + vRandCorePosition.y)));
+    vec2 nucleusCenter = vec2(0.5) + vRandCorePosition.xy + vec2(
+                sin(uTime * 0.001 + vRandCorePosition.x) * 0.06,
+                cos(uTime * 0.002 + vRandCorePosition.y) * 0.06
+            );
+    strength *= 0.015 / abs(distance(gl_PointCoord, nucleusCenter));
     gl_FragColor = vec4(vec3(strength * .1), 1.0);
     // gl_FragColor = vec4(gl_PointCoord.y);
 }

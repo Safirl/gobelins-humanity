@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { Camera } from "@plugins/base-experience";
 import gsap from "gsap";
+import type ExperienceWorld from "./ExpWorld2";
 
 export default class ExperienceCamera extends Camera {
   //@ts-ignore
@@ -8,10 +9,14 @@ export default class ExperienceCamera extends Camera {
   //
   //
   declare animCtx: gsap.Context;
-  private initialDistance: number = 1.9;
+  public initialDistance: number = 1.78;
+  private targetDistance: number = 5;
+  declare private world: ExperienceWorld;
+
   init(): void {
     super.init();
     this.experience.canvas.addEventListener("click", this.bumpCamera);
+    this.world = this.experience.world as ExperienceWorld;
   }
   setInstance(): void {
     this.instance = new THREE.PerspectiveCamera(
@@ -44,15 +49,26 @@ export default class ExperienceCamera extends Camera {
       this.instance.position.y,
       this.instance.position.z,
     );
+    const targetPosition = Math.max(
+      Math.random() * this.targetDistance,
+      this.initialDistance,
+    );
+
+    let step = this.targetDistance / this.world.textureCount;
+
+    if (currentPosition.z > targetPosition) {
+      step *= -1;
+    }
+
     this.animCtx = gsap.context((self) => {
       gsap.to(this.instance.position, {
-        z: currentPosition.z - 0.1,
-        duration: 0.1,
+        z: targetPosition + step * 2,
+        duration: this.world.beatDelay / 4,
         onComplete: () => {
           gsap.to(this.instance.position, {
-            z: currentPosition.z,
-            duration: 0.1,
-            ease: "power2.out",
+            z: targetPosition,
+            duration: this.world.beatDelay / 4,
+            // ease: "power2.in",
           });
         },
       });

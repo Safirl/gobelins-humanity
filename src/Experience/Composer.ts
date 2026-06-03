@@ -2,11 +2,14 @@ import { Debug, Experience } from "@plugins/base-experience";
 import { RGBShiftShader } from "three/addons/shaders/RGBShiftShader.js";
 import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
+import { RenderPixelatedPass } from "three/addons/postprocessing/RenderPixelatedPass.js";
 import type GUI from "lil-gui";
 import * as THREE from "three";
 
 export default class Composer {
   declare private experience: Experience;
+  //pixel
+  declare bloomPass: UnrealBloomPass;
 
   //bloom
   declare bloomPass: UnrealBloomPass;
