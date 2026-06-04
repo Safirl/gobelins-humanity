@@ -19,8 +19,7 @@ const init = () => {
   canvas.style.width = "100%";
   canvas.style.height = "100%";
   const camera = new ExperienceCamera();
-  const musicHandler = new MusicHandler();
-  const world = new ExperienceWorld(musicHandler);
+  const world = new ExperienceWorld();
   new Experience(canvas, sources, camera, world);
 };
 

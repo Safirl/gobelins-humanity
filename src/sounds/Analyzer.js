@@ -166,7 +166,7 @@ export default class Analyzer {
 
       this.toggleDebug(); // Display by default the sound debug overlay
 
-      //this.start(); // in case the context is already running
+      // this.start(); // in case the context is already running
       this.last = 0;
       this.raf = requestAnimationFrame(this.tick);
     }

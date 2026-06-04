@@ -37,14 +37,9 @@ export default class ExperienceWorld extends World {
   // public beatDelay = 0.411 / 1;
   public beatDelay = 0.411 / 4;
 
-  constructor(musicHandler: MusicHandler) {
-    super();
-    this.musicHandler = musicHandler;
-  }
-
   init() {
     super.init();
-
+    this.musicHandler = new MusicHandler();
     this.musicHandler.audio.onAudio(this.onAudio);
 
     this.experience.sizes.on("resize", this.resize);
