@@ -4,10 +4,9 @@ import Analyser from "../sounds/Analyzer.js";
 //@ts-ignore
 import AnalyzerDebug from "../sounds/AnalyzerDebug.js";
 
-export default class MusicHandler extends EventEmitter {
+export default class MusicHandler {
   declare public audio: Analyser;
   constructor() {
-    super();
     this.audio = new Analyser("live");
     new AnalyzerDebug(this.audio);
   }

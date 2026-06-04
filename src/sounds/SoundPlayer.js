@@ -47,7 +47,7 @@ export default class SoundPlayer {
       this.trackIndex = Math.max(
         0,
         this.trackNames.findIndex((n) => /@/i.test(n)),
-      ); // Digeridoo plays first
+      );
       if (this.tracks.length) this.useTrack(this.tracks[this.trackIndex]);
       else await this.useMic();
     } catch (e) {
