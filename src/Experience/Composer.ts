@@ -4,6 +4,7 @@ import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
 import type GUI from "lil-gui";
 import * as THREE from "three";
+import type ExperienceWorld from "./ExpWorld";
 
 export default class Composer {
   declare private experience: Experience;
@@ -15,10 +16,12 @@ export default class Composer {
   public bloomThreshold: number = 0.85;
   public bloomStrength: number = 0.4;
   public bloomRadius: number = 0.4;
+  public bloomEasing: number = 0.4;
 
   //shift
   declare rgbShift: ShaderPass;
-  public shiftAmount: number = 0.0015;
+  public shiftAmount: number = 0.0042;
+  public shiftOffset: number = 0.0027;
   declare private debug: Debug;
   declare private debugFolder: GUI;
 
@@ -42,24 +45,36 @@ export default class Composer {
       0.001,
       0.85,
     );
-    // bloomPass.threshold = params.threshold;
-    // bloomPass.strength = params.strength;
-    // bloomPass.radius = params.radius;
+
+    //Setup audio listener
+    const world = this.experience.world as ExperienceWorld;
+    world.musicHandler.audio.onAudio(this.onAudio);
   }
+
+  onAudio = (a) => {
+    // console.log(a.freqBytes[0]);
+    // console.log(a.freqBytes);
+    //@ts-ignore
+    this.rgbShift.uniforms.amount.value =
+      this.shiftAmount * a.kick + this.shiftOffset;
+    // this.bloomPass.strength =
+    //   this.bloomStrength * a.volumeSmooth * this.bloomEasing;
+    // //@ts-ignore
+    // this.points.material.uniforms.uSize.value =
+    //   this.size * a.volumeSmooth + 100;
+  };
 
   setDebugObject() {
     if (!this.debug.active) {
       return;
     }
     const rgbFolder = this.debugFolder.addFolder("🎨 RGB SHIFT");
-    rgbFolder
-      .add(this, "shiftAmount")
-      .min(0.0001)
-      .max(0.003)
-      .step(0.0001)
-      .onChange(() => {
-        this.rgbShift.uniforms["amount"].value = this.shiftAmount;
-      });
+    rgbFolder.add(this, "shiftAmount").min(0.0001).max(0.1).step(0.0001);
+    rgbFolder.add(this, "shiftOffset").min(0.0001).max(0.1).step(0.0001);
+    // .onChange(() => {
+    //   this.rgbShift.uniforms["amount"].value =
+    //     this.shiftAmount + this.shiftOffset;
+    // });
 
     const bloomFolder = this.debugFolder.addFolder("🌄 Bloom");
 
@@ -87,6 +102,8 @@ export default class Composer {
       .onChange(() => {
         this.bloomPass.radius = this.bloomRadius;
       });
+
+    bloomFolder.add(this, "bloomEasing").min(0.1).max(1).step(0.01);
   }
 
   enableBloom = (enable: boolean) => {

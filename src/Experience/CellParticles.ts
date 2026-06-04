@@ -110,16 +110,18 @@ export default class CelleParticles {
     this.experience.scene.add(this.points);
 
     //Setup audio listener
-    const world = this.experience.world as ExperienceWorld
-    world.musicHandler.audio.onAudio(this.onAudio)
+    const world = this.experience.world as ExperienceWorld;
+    world.musicHandler.audio.onAudio(this.onAudio);
   }
 
   onAudio = (a) => {
     //@ts-ignore
-    this.points.material.uniforms.uNoiseAmplitude.value = a.volumeSmooth * this.noiseAmplitude;
+    this.points.material.uniforms.uNoiseAmplitude.value =
+      a.volumeSmooth * this.noiseAmplitude;
     //@ts-ignore
-    this.points.material.uniforms.uSize.value = this.size * a.volumeSmooth + 100
-  }
+    this.points.material.uniforms.uSize.value =
+      this.size * a.volumeSmooth + 100;
+  };
 
   setDebugObject = () => {
     this.debugFolder
@@ -128,18 +130,18 @@ export default class CelleParticles {
       .max(1)
       .step(0.01)
       .onChange(() => {
-    //@ts-ignore
+        //@ts-ignore
         this.points.material.uniforms.uNoiseAmplitude.value =
           this.noiseAmplitude;
       });
 
     this.debugFolder
       .add(this, "noiseFrequency")
-      .min(0.)
+      .min(0)
       .max(1)
       .step(0.01)
       .onChange(() => {
-    //@ts-ignore
+        //@ts-ignore
         this.points.material.uniforms.uNoiseFrequency.value =
           this.noiseFrequency;
       });
