@@ -1,11 +1,10 @@
 import "./assets/reset.css";
 // import "./style.css";
-import {
-  Experience,
-} from "@plugins/base-experience";
+import { Experience } from "@plugins/base-experience";
 import { sources } from "./Experience/sources";
 import ExperienceWorld from "./Experience/ExpWorld";
 import ExperienceCamera from "./Experience/OrthoCamera";
+import MusicHandler from "./Experience/MusicHandler";
 
 const init = () => {
   const canvas: HTMLCanvasElement = document.getElementById(
@@ -20,7 +19,8 @@ const init = () => {
   canvas.style.width = "100%";
   canvas.style.height = "100%";
   const camera = new ExperienceCamera();
-  const world = new ExperienceWorld();
+  const musicHandler = new MusicHandler();
+  const world = new ExperienceWorld(musicHandler);
   new Experience(canvas, sources, camera, world);
 };
 
