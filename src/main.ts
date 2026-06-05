@@ -5,6 +5,7 @@ import { sources } from "./Experience/sources";
 import ExperienceWorld from "./Experience/ExpWorld";
 import ExperienceCamera from "./Experience/OrthoCamera";
 import MusicHandler from "./Experience/MusicHandler";
+import VjingExperience from "./Experience/VjingExperience";
 
 const init = () => {
   const canvas: HTMLCanvasElement = document.getElementById(
@@ -16,11 +17,23 @@ const init = () => {
     );
   }
 
+  const musicHandler = new MusicHandler();
+
+  musicHandler.audio.onLoad(async () => {
+    const camera = new ExperienceCamera();
+    const world = new ExperienceWorld(musicHandler);
+    const exp = new VjingExperience(
+      canvas,
+      sources,
+      camera,
+      world,
+      musicHandler,
+    );
+    await exp.load(sources);
+  });
+
   canvas.style.width = "100%";
   canvas.style.height = "100%";
-  const camera = new ExperienceCamera();
-  const world = new ExperienceWorld();
-  new Experience(canvas, sources, camera, world);
 };
 
 init();

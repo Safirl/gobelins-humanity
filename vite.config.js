@@ -2,7 +2,7 @@
 import glsl from "vite-plugin-glsl";
 import { defineConfig } from "vitest/config";
 import { resolve } from "path";
-import vjTracksPlugin from './vite-plugin-vj-tracks.js'
+import vjTracksPlugin from "./vite-plugin-vj-tracks.js";
 
 export default defineConfig({
   plugins: [
@@ -19,4 +19,5 @@ export default defineConfig({
   test: {
     environment: "node",
   },
+  base: "./",
 });

@@ -7,6 +7,6 @@ import AnalyzerDebug from "../sounds/AnalyzerDebug.js";
 export default class MusicHandler {
   declare public audio: Analyser;
   constructor() {
-    this.audio = new Analyser("live");
+    this.audio = new Analyser();
   }
 }

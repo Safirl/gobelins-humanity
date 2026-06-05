@@ -24,7 +24,7 @@ export default class Experience implements LifeTimeObject {
   declare inputSystem: InputSystem;
   declare collisionManager: CollisionManager;
   public areResourcesLoaded: boolean = false;
-  declare private stats: Stats;
+  declare public stats: Stats;
 
   static instance: Experience | null = null;
 
@@ -53,7 +53,6 @@ export default class Experience implements LifeTimeObject {
     this.sizes = new Sizes();
     this.time = new Time();
     this.scene = new THREE.Scene();
-    this.resources = new Resources(sources);
     this.inputSystem = new InputSystem();
     this.collisionManager = new CollisionManager();
 
@@ -73,10 +72,14 @@ export default class Experience implements LifeTimeObject {
       this.displayPerformances();
     }
 
-    this.resources.on("ready", () => this.onResourcesLoaded());
-
     console.log("Experience class instantiated");
   }
+
+  load = async (sources: Source[]) => {
+    this.resources = new Resources(sources);
+    this.resources.on("ready", () => this.onResourcesLoaded());
+    await this.resources.startLoading();
+  };
 
   displayPerformances() {
     this.stats = new Stats();
@@ -92,9 +95,9 @@ export default class Experience implements LifeTimeObject {
     });
     this.camera.init();
     this.world.init();
-    setTimeout(() => {
-      this.areResourcesLoaded = true;
-    }, 1500);
+    this.areResourcesLoaded = true;
+    // setTimeout(() => {
+    // }, 1500);
   }
 
   init = () => {};

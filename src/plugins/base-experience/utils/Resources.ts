@@ -25,7 +25,6 @@ export default class Resources extends EventEmitter {
     this.loaded = 0;
 
     this.setLoaders();
-    this.startLoading();
   }
 
   setLoaders() {
@@ -36,7 +35,7 @@ export default class Resources extends EventEmitter {
     //@TODO add the draco loader
   }
 
-  startLoading() {
+  async startLoading() {
     for (const source of this.sources) {
       if (source.type === "gltfModel" && this.loaders.gltfLoader) {
         const path = source.path as string;
@@ -45,9 +44,8 @@ export default class Resources extends EventEmitter {
         });
       } else if (source.type === "texture" && this.loaders.textureLoader) {
         const path = source.path as string;
-        this.loaders.textureLoader.load(path, (file) => {
-          this.sourceLoaded(source, file);
-        });
+        const file = await this.loaders.textureLoader.loadAsync(path);
+        this.sourceLoaded(source, file);
       } else if (
         source.type === "cubeTexture" &&
         this.loaders.cubeTextureLoader
